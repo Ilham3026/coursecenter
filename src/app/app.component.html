@@ -1,0 +1,23 @@
+<!-- <app-home></app-home> -->
+
+<nav>
+  <p>
+    <mat-toolbar color="primary">
+      <span>COURSE CENTER</span>
+      <span class="example-spacer"></span>
+      <button routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" mat-icon-button>
+        <mat-icon>home</mat-icon>
+      </button>
+      <button routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page" mat-icon-button  *ngIf="itemcart.length != 0">
+        <mat-icon [matBadge]="itemcart.length" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+      <button routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page" mat-icon-button *ngIf="itemcart.length == 0">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+</nav>
+
+<div class="container-fluid animate__animated animate__fadeIn">
+  <router-outlet></router-outlet>
+</div>

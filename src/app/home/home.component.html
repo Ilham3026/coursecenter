@@ -1,0 +1,125 @@
+<div class="animate__animated animate__fadeIn">
+    <div class="container-fluid mb-3">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Filter {{statsFilter}} 
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p>
+                            <button mat-button color="primary" (click)="sortby('default')">Default</button>
+                            <button mat-button color="primary" (click)="sortby('price_asc')">Harga Termurah</button>
+                            <button mat-button color="primary" (click)="sortby('price_dsc')">Price Termahal</button>
+                        </p>
+                        <p>
+                            filter berdasarkan rating <br>
+                            <button type="button" class="btn btn-link btn-star" (click)="sortby('fivestar')">
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-link btn-star" (click)="sortby('fourstar')">
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-link btn-star" (click)="sortby('threestar')">
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-link btn-star" (click)="sortby('twostar')">
+                                <fa-icon [icon]="faStar"></fa-icon>
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-link btn-star" (click)="sortby('onestar')">
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </button>
+                        </p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                    <div class="position-absolute top-50 start-50 translate-middle" *ngIf="dummycollection.length == 0">
+                        <h1 class="text-muted">Data Tidak Ditemukan</h1>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3 animate__animated animate__fadeIn" *ngFor="let collection of dummycollection | paginate:{ 
+        itemsPerPage: 5, 
+        currentPage: page, 
+        totalItems: dummycollection.length}; let i = index;" (click)="openprod(collection)">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <div style="width: 100%; height: 250px;">
+                    <img [src]="collection.src" style="width: 100%; height: 100%;" class="img-thumbnail mx-auto d-block" [alt]="collection.title">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h2 class="card-title"><b style="padding: 0px;">{{collection.title}}</b></h2>
+                    <p class="card-text text-muted">{{collection.description}}</p>
+                    <p class="card-text"><small class="text-muted">{{collection.publisher}}</small></p>
+                    <p>
+                        <b style="color: #FF9529; font-size: medium; padding-right: 5px;">{{procrate(collection.rate)}}</b>
+                        <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                                <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                            </span>
+                        </ng-template>
+                        <ngb-rating [rate]="procrate(collection.rate)" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                        <small class="text-muted" style="padding-left:5px" *ngIf="counttotalrating(collection.rate) >= 1">
+                            ({{counttotalrating(collection.rate)}})
+                        </small>
+                        <small class="text-muted" style="padding-left:5px" *ngIf="counttotalrating(collection.rate) < 1">
+                            No Review Yet
+                        </small>
+                    </p>
+                    <p class="card-text"><small class="text-muted">
+                        {{collection.watch}} total jam &#8226; {{collection.lessons}} pelajaran &#8226; {{levelcheck(collection.level)}}
+                    </small></p>
+                    <h3>
+                        <div *ngIf="procBadgeHot(procBadgeNew(collection.date), procBadgeBS(counttotalrating(collection.rate), procrate(collection.rate))) != true">
+                            <span class="badge bg-success" *ngIf="procBadgeNew(collection.date)">NEW</span> &nbsp;
+                            <span class="badge bg-primary" *ngIf="procBadgeBS(counttotalrating(collection.rate), procrate(collection.rate))">BEST SELLER</span> &nbsp;
+                        </div>
+                        <span class="badge bg-danger" *ngIf="procBadgeHot(procBadgeNew(collection.date), procBadgeBS(counttotalrating(collection.rate), procrate(collection.rate)))">HOT LESSON</span>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="card-body">
+                    <div class="row pb-1 float-end">
+                        <b style="font-size: medium;">Rp{{promocheck(collection.promoprice, collection.price) | number}}</b>
+                    </div>
+                    <div class="row float-end" *ngIf="collection.promoprice != 0;">
+                        <s style="color: #aaafb4;">Rp{{collection.price | number}}</s>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="container-fluid fixed-bottom bg-light pt-4" *ngIf="dummycollection.length != 0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <pagination-controls previousLabel="Sebelumnya" nextLabel="Selanjutnya" (pageChange)="onTableDataChange($event)">
+
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

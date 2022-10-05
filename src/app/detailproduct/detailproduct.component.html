@@ -1,0 +1,97 @@
+    <div class="animate__animated animate__fadeIn">
+    <div class="container">
+        <div class="row pb-3">
+            <div class="col-xl-6">
+                <div style="height: 400px; width: 100%;">
+                    <img [src]="detailCollection.src" style="height: 100%; width: 100%;" class="img-thumbnail p-3">
+                </div>
+            </div>
+            <div class="col-md-6 p-3">
+                <h2 class="card-title"><b style="padding: 0px;">{{detailCollection.title}}</b></h2>
+                <p class="card-text text-muted">{{detailCollection.description}}</p>
+                <p class="card-text"><small class="text-muted">{{detailCollection.publisher}}</small></p>
+                <p>
+                    <b style="color: #FF9529; font-size: medium; padding-right: 5px;">{{procrate(detailCollection.rate)}}</b>
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="procrate(detailCollection.rate)" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                    <small class="text-muted" style="padding-left:5px" *ngIf="counttotalrating(detailCollection.rate) >= 1">
+                        ({{counttotalrating(detailCollection.rate)}})
+                    </small>
+                    <small class="text-muted" style="padding-left:5px" *ngIf="counttotalrating(detailCollection.rate) < 1">
+                        No Review Yet
+                    </small>
+                </p>
+                <p class="card-text"><small class="text-muted">
+                    {{detailCollection.watch}} total jam &#8226; {{detailCollection.lessons}} pelajaran &#8226; {{levelcheck(detailCollection.level)}}
+                </small></p>
+                <p *ngIf="showwladded">
+                    <button mat-icon-button color="warn" (click)="addToWishlist('remove', detailCollection)">
+                        <mat-icon>favorite</mat-icon> &nbsp; Whislisted!
+                    </button>
+                </p>
+                <p *ngIf="showwlremoved">
+                    <button mat-icon-button color="basic" (click)="addToWishlist('add', detailCollection)">
+                        <mat-icon>favorite</mat-icon> &nbsp; Click to add wishlist!
+                    </button>
+                </p>
+                <div class="d-grid gap-2 pt-5">
+                    <button class="btn btn-success" type="button" (click)="addToCart(detailCollection)">Masukkan ke keranjang</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="text-muted">Detail Star Review</h3>
+                <p style="margin: 0px; padding: 0px;">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="rate5" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating><br>
+                    <small class="text-muted" style="padding-left:5px">{{checkrate(detailCollection.rate.fivestar)}}</small>
+                </p>
+                <p style="margin: 0px; padding: 0px;">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="rate4" [starTemplate]="t" [readonly]="true" [max]="4"></ngb-rating><br>
+                    <small class="text-muted" style="padding-left:5px">{{checkrate(detailCollection.rate.fourstar)}}</small>
+                </p>
+                <p style="margin: 0px; padding: 0px;">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="rate3" [starTemplate]="t" [readonly]="true" [max]="3"></ngb-rating><br>
+                    <small class="text-muted" style="padding-left:5px">{{checkrate(detailCollection.rate.threestar)}}</small>
+                </p>
+                <p style="margin: 0px; padding: 0px;">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="rate2" [starTemplate]="t" [readonly]="true" [max]="2"></ngb-rating><br>
+                    <small class="text-muted" style="padding-left:5px">{{checkrate(detailCollection.rate.twostar)}}</small>
+                </p>
+                <p style="margin: 0px; padding: 0px;">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating [rate]="rate1" [starTemplate]="t" [readonly]="true" [max]="1"></ngb-rating><br>
+                    <small class="text-muted" style="padding-left:5px">{{checkrate(detailCollection.rate.onestar)}}</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

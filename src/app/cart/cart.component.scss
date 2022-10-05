@@ -1,0 +1,30 @@
+.btncart{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.btncart:hover{
+    background-color: #F1f3f3;
+}
+
+.totalcart{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+}
+
+.card{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.card:hover{
+    background-color: #F1f3f3;
+}

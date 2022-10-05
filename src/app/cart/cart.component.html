@@ -1,0 +1,62 @@
+<div class="animate__animated animate__fadeIn">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                    <div class="position-absolute top-50 start-50 translate-middle" *ngIf="collection.length == 0">
+                        <h1 class="text-muted">ANDA TIDAK MEMPUNYAI BELANJAAN</h1>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" *ngFor="let coll of collection | paginate:{ 
+        itemsPerPage: 5, 
+        currentPage: page, 
+        totalItems: collection.length}" (click)="openprod(coll)">
+        <div class="row">
+            <div class="col-2">
+                <div style="width: 100%; height: 125px;">
+                    <img [src]="coll.src" style="width: 100%; height: 100%;" class="img-thumbnail mx-auto d-block">
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="card-body">
+                    <h3 class="card-title"><b style="padding: 0px;">{{coll.title}}</b></h3>
+                    <p class="card-text"><small class="text-muted">Rp.{{promoCheck(coll.promoprice, coll.price) | number}}</small></p>
+                    <p class="card-text text-muted">
+                        <b>Total Rp{{countTotal(promoCheck(coll.promoprice, coll.price),coll.jumlah) | number}}</b>
+                    </p>
+                </div>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-center">
+                <div class="row" style="height: 50px; font-size: 15px;">
+                    <div class="border d-flex align-items-center justify-content-center p-0 btncart" (click)="click('remove', coll);preventClicked($event)"
+                            style="width: 35px; height: 35px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                        <mat-icon width="20px">remove</mat-icon>
+                    </div>
+                    <div class="border d-flex align-items-center justify-content-center p-0 totalcart" style="width: 35px; height: 35px;" (click)="preventClicked($event)">
+                        {{coll.jumlah}}
+                    </div>
+                    <div class="border d-flex align-items-center justify-content-center p-0 btncart" (click)="click('add', coll);preventClicked($event)"
+                            style="width: 35px; height: 35px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+                        <mat-icon width="20px">add</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="d-grid gap-2">
+        <button class="btn btn-success" type="button" (click)="pay()" *ngIf="collection.length != 0">Bayar</button>
+    </div>
+    <br><br><br>
+    <div class="container-fluid fixed-bottom bg-light pt-4" *ngIf="collection.length != 0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <pagination-controls previousLabel="Sebelumnya" nextLabel="Selanjutnya" (pageChange)="onTableDataChange($event)">
+
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

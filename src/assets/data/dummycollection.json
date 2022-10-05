@@ -1,0 +1,142 @@
+[
+    {
+       "id_prod":1,
+       "src":"assets/mikrotik.png",
+       "title":"Kursus mikrotik terlengkap, Lebih dari dari 100 video tutorial!",
+       "description":"Menjadi professional network engineer dengan menguasai mikrotik advanced! Belajar materi MTCNA, MTCRE, MTCUME, MTCTCE",
+       "publisher":"Ahmad Rosid Komarudin, Agunacourse.com | Kursus IT",
+       "price":350000,
+       "promoprice":150000,
+       "watch":9.7,
+       "lessons":111,
+       "level":0,
+       "date":"2022-10-03",
+       "rate":{
+          "onestar":2,
+          "twostar":10,
+          "threestar":3,
+          "fourstar":220,
+          "fivestar":200
+       }
+    },
+    {
+       "id_prod":2,
+       "src":"assets/cisco.png",
+       "title":"Cisco Foundation Untuk Pemula",
+       "description":"Cisco Certified Network Entry Technician - Routing & Switching Certification",
+       "publisher":"Agus Setiawan, Nixtrain Academy",
+       "price":460000,
+       "promoprice":129000,
+       "watch":8.8,
+       "lessons":90,
+       "level":0,
+       "date":"2022-10-01",
+       "rate":{
+          "onestar":30,
+          "twostar":30,
+          "threestar":0,
+          "fourstar":150,
+          "fivestar":120
+       }
+    },
+    {
+       "id_prod":3,
+       "src":"assets/python.png",
+       "title":"3 dalam 1, CCNA, Python dan Network Automation",
+       "description":"Kursus python for Network Engineers, Belajar 3 materi dalam satu Kursus, Networking, Python, dan Network Programming ",
+       "publisher":"Ahmad Rosid Komarudin, Agunacourse.com | Kursus IT",
+       "price":1199000,
+       "promoprice":179000,
+       "watch":8.8,
+       "lessons":100,
+       "level":3,
+       "date":"2022-09-25",
+       "rate":{
+          "onestar":7,
+          "twostar":10,
+          "threestar":3,
+          "fourstar":100,
+          "fivestar":119
+       }
+    },
+    {
+       "id_prod":4,
+       "src":"assets/networking.png",
+       "title":"Kursus network pemula, Mulai dari basic hingga mahir!",
+       "description":"Belajar menjadi seorang networking yang paham dengan basic jaringan dimulai dari yang paling basic hingga advanced materi belajar topologi, jaringan dan pengoperasian linux",
+       "publisher":"Syahban Ramadhani | Kursus IT Network",
+       "price":550000,
+       "promoprice":169000,
+       "watch":7.7,
+       "lessons":71,
+       "level":0,
+       "date":"2022-09-24",
+       "rate":{
+          "onestar":5,
+          "twostar":5,
+          "threestar":7,
+          "fourstar":100,
+          "fivestar":80
+       }
+    },
+    {
+       "id_prod":5,
+       "src":"assets/db.png",
+       "title":"Kursus Admin Basis Data tingkat lanjutan",
+       "description":"Pendalaman untuk metode keamanan terhadap basis data agar tahan dari berbagai SQL Injection",
+       "publisher":"Bagas Bhayangkara | Kursus IT Network",
+       "price":1500000,
+       "promoprice":899000,
+       "watch":7.8,
+       "lessons":30,
+       "level":1,
+       "date":"2022-09-22",
+       "rate":{
+          "onestar":20,
+          "twostar":10,
+          "threestar":22,
+          "fourstar":5,
+          "fivestar":0
+       }
+    },
+    {
+       "id_prod":6,
+       "src":"assets/android.png",
+       "title":"Android dan IOT",
+       "description":"Pembelajaran untuk implementasi IOT terhadap aplikasi mobile, termasuk pembelajaran integrasi dengan mesin IOT dan bagaimana berkomunikasi dengan API",
+       "publisher":"Bagas Bhayangkara | Kursus IT Network",
+       "price":750000,
+       "promoprice":399000,
+       "watch":8.9,
+       "lessons":3,
+       "level":0,
+       "date":"2022-09-20",
+       "rate":{
+          "onestar":0,
+          "twostar":0,
+          "threestar":0,
+          "fourstar":100,
+          "fivestar":150
+       }
+    },
+    {
+       "id_prod":7,
+       "src":"assets/iot.png",
+       "title":"Everything is Internet of Things",
+       "description":"Mempelajari konsep dari Internet of Things dan mengimplementasikannya langsung dengan microcontroller",
+       "publisher":"Internet is Everything",
+       "price":750000,
+       "promoprice":399000,
+       "watch":8.9,
+       "lessons":3,
+       "level":0,
+       "date":"2022-09-20",
+       "rate":{
+          "onestar":0,
+          "twostar":0,
+          "threestar":0,
+          "fourstar":0,
+          "fivestar":0
+       }
+    }
+]
